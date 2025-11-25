@@ -1,0 +1,30 @@
+/* 定義專案設計系統變數 */
+:root {
+  /* Brand Colors */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #10b981;
+  --color-success-light: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  
+  /* Text Colors */
+  --text-main: #333333;
+  --text-secondary: #2c3e50;
+  --text-muted: #888888;
+
+  /* Backgrounds */
+  --bg-page: #ffffff;
+  --bg-card: #f8f9fa;
+  --bg-table-header: #f3f4f6;
+
+  /* Borders */
+  --border-color: #e9ecef;
+  --border-radius: 8px;
+  --border-radius-sm: 6px;
+
+  /* Spacing */
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+}
