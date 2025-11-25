@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # 1. 資料庫服務
+  mongo:
+    image: mongo:6.0
+    container_name: attendance_mongo
+    restart: always
+    ports:
+      - "27018:27017" # 對外暴露 27018 (供本機開發工具連線)
+    volumes:
+      - mongo_data:/data/db
+
+  # 2. 後端服務
+  backend:
+    build:
+      context: ./backend
+    container_name: attendance_backend
+    restart: always
+    ports:
+      - "3000:3000" # 對外暴露 3000 (供前端呼叫)
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/attendance-db
+    depends_on:
+      - mongo
+
+  # 3. 前端服務
+  frontend:
+    build:
+      context: ./frontend
+    container_name: attendance_frontend
+    restart: always
+    ports:
+      - "8080:80" # 將 Nginx 的 80 對應到本機的 8080
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
